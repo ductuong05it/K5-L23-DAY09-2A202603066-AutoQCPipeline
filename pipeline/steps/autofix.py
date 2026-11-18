@@ -27,13 +27,163 @@ Bẫy cần nghĩ tới (có test cho từng cái)
 
 Gợi ý: `yaml.safe_load / safe_dump`.
 """
-from collections import defaultdict  # noqa: F401
+from collections import defaultdict
+from pathlib import Path
 
-import yaml  # noqa: F401
+import yaml
 
-from ..common import ERROR, parse_yolo_line  # noqa: F401
+from ..common import ERROR, parse_yolo_line
 
 
 def fix(ds, issues, cfg):
-    # TODO
-    raise NotImplementedError("autofix chưa làm")
+    fixes = []
+    # Chỉ xử lý các lỗi có severity ERROR (không động tới WARN)
+    err_issues = [i for i in issues if i.severity == ERROR]
+    if not err_issues:
+        return fixes
+
+    removed_images = set()
+
+    # 1. Nhóm xóa ảnh: DUP_IMAGE_*, LEAK_TEST, CORRUPT_IMAGE, BAD_SIZE
+    for iss in err_issues:
+        code = iss.code
+        if code.startswith("DUP_IMAGE_") or code in ("LEAK_TEST", "CORRUPT_IMAGE", "BAD_SIZE"):
+            stem = iss.image
+            if stem not in removed_images:
+                removed_images.add(stem)
+                # Xóa ảnh trong images_dir
+                if ds.images_dir.exists():
+                    for p in ds.images_dir.glob(f"{stem}.*"):
+                        p.unlink(missing_ok=True)
+                # Xóa file nhãn trong labels_dir
+                lp = ds.label_path(stem)
+                if lp.exists():
+                    lp.unlink(missing_ok=True)
+                fixes.append({
+                    "image": stem,
+                    "line": "",
+                    "action": "remove_image",
+                    "before": stem,
+                    "after": "đã xoá"
+                })
+
+    # 2. Sửa tên lớp trong data.yaml: BAD_CLASS_NAME
+    for iss in err_issues:
+        if iss.code == "BAD_CLASS_NAME":
+            before_val = ""
+            data = {}
+            if ds.yaml_path.exists():
+                data = yaml.safe_load(ds.yaml_path.read_text(encoding="utf-8")) or {}
+                before_val = str(data.get("names", ""))
+            data["names"] = list(cfg["classes"])
+            ds.yaml_path.write_text(yaml.safe_dump(data, sort_keys=False, allow_unicode=True), encoding="utf-8")
+            fixes.append({
+                "image": "data.yaml",
+                "line": "",
+                "action": "rename_classes",
+                "before": before_val,
+                "after": str(cfg["classes"])
+            })
+
+    # 3. Ảnh thiếu nhãn: MISSING_LABEL_FILE (không tạo file, chuyển người gán)
+    for iss in err_issues:
+        if iss.code == "MISSING_LABEL_FILE":
+            stem = iss.image
+            if stem not in removed_images:
+                fixes.append({
+                    "image": stem,
+                    "line": "",
+                    "action": "needs_label",
+                    "before": "(không có file)",
+                    "after": "chuyển người gán"
+                })
+
+    # 4. Sửa từng dòng trong file nhãn (BAD_FORMAT, BAD_CLASS_ID, BOX_ZERO, DUP_BOX, BOX_OUT_OF_IMAGE)
+    # Gom lỗi theo file nhãn và theo số dòng
+    file_issues = defaultdict(lambda: defaultdict(list))
+    for iss in err_issues:
+        stem = iss.image
+        if stem in removed_images or stem in ("data.yaml", "<dataset>"):
+            continue
+        if iss.line is not None:
+            file_issues[stem][iss.line].append(iss)
+
+    for stem, line_issues in file_issues.items():
+        lp = ds.label_path(stem)
+        if not lp.exists():
+            continue
+
+        raw_content = lp.read_text(encoding="utf-8", errors="replace")
+        original_lines = raw_content.splitlines()
+
+        new_lines = []
+        for idx in range(1, len(original_lines) + 1):
+            line_str = original_lines[idx - 1]
+            if idx in line_issues:
+                issues_on_line = line_issues[idx]
+                codes = {i.code for i in issues_on_line}
+
+                # Ưu tiên xóa dòng nếu dính các lỗi không thể cứu:
+                # BAD_FORMAT, BAD_CLASS_ID, BOX_ZERO, DUP_BOX
+                drop_codes = {"BAD_FORMAT", "BAD_CLASS_ID", "BOX_ZERO", "DUP_BOX"}
+                if codes & drop_codes:
+                    fixes.append({
+                        "image": stem,
+                        "line": idx,
+                        "action": "drop_line",
+                        "before": line_str,
+                        "after": ""
+                    })
+                    continue
+
+                # Nếu là BOX_OUT_OF_IMAGE: thử clip box về [0, 1]
+                if "BOX_OUT_OF_IMAGE" in codes:
+                    try:
+                        cid, cx, cy, w, h = parse_yolo_line(line_str)
+                        x1 = max(0.0, cx - w / 2.0)
+                        y1 = max(0.0, cy - h / 2.0)
+                        x2 = min(1.0, cx + w / 2.0)
+                        y2 = min(1.0, cy + h / 2.0)
+                        new_w = x2 - x1
+                        new_h = y2 - y1
+                        if new_w <= 0 or new_h <= 0:
+                            # Box nằm hoàn toàn ngoài ảnh -> drop_line
+                            fixes.append({
+                                "image": stem,
+                                "line": idx,
+                                "action": "drop_line",
+                                "before": line_str,
+                                "after": ""
+                            })
+                            continue
+                        new_cx = (x1 + x2) / 2.0
+                        new_cy = (y1 + y2) / 2.0
+                        clipped_line = f"{cid} {new_cx:.6f} {new_cy:.6f} {new_w:.6f} {new_h:.6f}"
+                        fixes.append({
+                            "image": stem,
+                            "line": idx,
+                            "action": "clip_box",
+                            "before": line_str,
+                            "after": clipped_line
+                        })
+                        new_lines.append(clipped_line)
+                    except ValueError:
+                        fixes.append({
+                            "image": stem,
+                            "line": idx,
+                            "action": "drop_line",
+                            "before": line_str,
+                            "after": ""
+                        })
+                        continue
+            else:
+                new_lines.append(line_str)
+
+        # Ghi lại file nhãn đã sửa
+        if new_lines:
+            lp.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+        else:
+            lp.write_text("", encoding="utf-8")
+
+    return fixes
+

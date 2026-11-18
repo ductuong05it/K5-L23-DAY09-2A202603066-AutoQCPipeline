@@ -1,0 +1,110 @@
+check,severity,code,image,line,message,extra
+missing_labels,error,MISSING_LABEL_FILE,img_0031,,ảnh không có file nhãn,
+missing_labels,error,MISSING_LABEL_FILE,img_0053,,ảnh không có file nhãn,
+missing_labels,error,MISSING_LABEL_FILE,img_0126,,ảnh không có file nhãn,
+missing_labels,error,MISSING_LABEL_FILE,img_0135,,ảnh không có file nhãn,
+missing_labels,error,MISSING_LABEL_FILE,img_0170,,ảnh không có file nhãn,
+missing_labels,error,MISSING_LABEL_FILE,img_0219,,ảnh không có file nhãn,
+missing_labels,warn,EMPTY_LABEL,img_0004,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0050,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0057,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0065,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0097,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0103,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0104,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0129,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0147,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0157,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0178,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0184,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0192,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+missing_labels,warn,EMPTY_LABEL,img_0194,,file nhãn rỗng: ảnh nền hay thiếu nhãn?,
+label_format,warn,BOX_HUGE,img_0018,1,Box quá lớn: diện tích chiếm 0.970 > 0.95,
+label_format,warn,BOX_TINY,img_0026,6,Box quá nhỏ: cạnh ngắn 11.4px < 12px,
+label_format,warn,BOX_TINY,img_0030,9,Box quá nhỏ: cạnh ngắn 9.8px < 12px,
+label_format,warn,BOX_TINY,img_0051,5,Box quá nhỏ: cạnh ngắn 8.9px < 12px,
+label_format,warn,BOX_TINY,img_0069,2,Box quá nhỏ: cạnh ngắn 11.2px < 12px,
+label_format,warn,BOX_HUGE,img_0128,1,Box quá lớn: diện tích chiếm 0.988 > 0.95,
+label_format,warn,BOX_TINY,img_0161,2,Box quá nhỏ: cạnh ngắn 10.3px < 12px,
+label_format,warn,BOX_TINY,img_0161,3,Box quá nhỏ: cạnh ngắn 11.4px < 12px,
+label_format,warn,BOX_TINY,img_0161,4,Box quá nhỏ: cạnh ngắn 11.9px < 12px,
+label_format,warn,BOX_HUGE,img_0196,1,Box quá lớn: diện tích chiếm 0.984 > 0.95,
+second_opinion,warn,POSSIBLE_MISSING,img_0001,,Model thấy person (conf=0.95) nhưng nhãn không có box,"{""conf"": 0.9458, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0004,,Model thấy car (conf=0.89) nhưng nhãn không có box,"{""conf"": 0.8897, ""class"": 0}"
+second_opinion,warn,POSSIBLE_MISSING,img_0014,,Model thấy person (conf=0.85) nhưng nhãn không có box,"{""conf"": 0.8469, ""class"": 1}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0015,,Box lỏng/lệch (IoU=0.34 < 0.5),"{""conf"": 0.8941, ""iou"": 0.3434}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0019,,"Nghi nhầm lớp: model đoán car (conf=0.94), nhãn khác lớp (IoU=0.99)","{""conf"": 0.941, ""iou"": 0.9876}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0020,,"Nghi nhầm lớp: model đoán bus (conf=0.95), nhãn khác lớp (IoU=0.94)","{""conf"": 0.9474, ""iou"": 0.9433}"
+second_opinion,warn,POSSIBLE_MISSING,img_0020,,Model thấy person (conf=0.84) nhưng nhãn không có box,"{""conf"": 0.8408, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0022,,Model thấy car (conf=0.85) nhưng nhãn không có box,"{""conf"": 0.8483, ""class"": 0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0024,7,Nhãn tại dòng 7 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0028,,Model thấy person (conf=0.94) nhưng nhãn không có box,"{""conf"": 0.9406, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0030,9,Nhãn tại dòng 9 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0034,,"Nghi nhầm lớp: model đoán person (conf=0.91), nhãn khác lớp (IoU=0.89)","{""conf"": 0.9066, ""iou"": 0.8922}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0035,2,Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0036,,Box lỏng/lệch (IoU=0.43 < 0.5),"{""conf"": 0.8733, ""iou"": 0.4265}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0037,,"Nghi nhầm lớp: model đoán car (conf=0.91), nhãn khác lớp (IoU=0.97)","{""conf"": 0.9134, ""iou"": 0.9686}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0046,,Box lỏng/lệch (IoU=0.38 < 0.5),"{""conf"": 0.8928, ""iou"": 0.3823}"
+second_opinion,warn,POSSIBLE_MISSING,img_0050,,Model thấy person (conf=0.93) nhưng nhãn không có box,"{""conf"": 0.929, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0057,,Model thấy person (conf=0.89) nhưng nhãn không có box,"{""conf"": 0.8893, ""class"": 1}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0062,,Box lỏng/lệch (IoU=0.47 < 0.5),"{""conf"": 0.8051, ""iou"": 0.471}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0064,,Box lỏng/lệch (IoU=0.45 < 0.5),"{""conf"": 0.9147, ""iou"": 0.4501}"
+second_opinion,warn,POSSIBLE_MISSING,img_0065,,Model thấy bus (conf=0.94) nhưng nhãn không có box,"{""conf"": 0.9413, ""class"": 3}"
+second_opinion,warn,POSSIBLE_MISSING,img_0066,,Model thấy bus (conf=0.95) nhưng nhãn không có box,"{""conf"": 0.9463, ""class"": 3}"
+second_opinion,warn,POSSIBLE_MISSING,img_0067,,Model thấy person (conf=0.84) nhưng nhãn không có box,"{""conf"": 0.8354, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0068,,Model thấy person (conf=0.89) nhưng nhãn không có box,"{""conf"": 0.8851, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0068,7,Nhãn tại dòng 7 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0069,2,Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0070,,"Nghi nhầm lớp: model đoán person (conf=0.95), nhãn khác lớp (IoU=0.99)","{""conf"": 0.9484, ""iou"": 0.9873}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0070,6,Nhãn tại dòng 6 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0071,,"Nghi nhầm lớp: model đoán person (conf=0.93), nhãn khác lớp (IoU=0.99)","{""conf"": 0.925, ""iou"": 0.9877}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0075,,"Nghi nhầm lớp: model đoán person (conf=0.91), nhãn khác lớp (IoU=0.97)","{""conf"": 0.9144, ""iou"": 0.9706}"
+second_opinion,warn,POSSIBLE_MISSING,img_0078,,Model thấy car (conf=0.85) nhưng nhãn không có box,"{""conf"": 0.8527, ""class"": 0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0078,2,Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0082,,Box lỏng/lệch (IoU=0.48 < 0.5),"{""conf"": 0.8085, ""iou"": 0.4834}"
+second_opinion,warn,POSSIBLE_MISSING,img_0086,,Model thấy person (conf=0.88) nhưng nhãn không có box,"{""conf"": 0.884, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0091,7,Nhãn tại dòng 7 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0092,,Model thấy car (conf=0.91) nhưng nhãn không có box,"{""conf"": 0.9069, ""class"": 0}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0092,9,Nhãn tại dòng 9 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0095,6,Nhãn tại dòng 6 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0096,,Box lỏng/lệch (IoU=0.47 < 0.5),"{""conf"": 0.9178, ""iou"": 0.4687}"
+second_opinion,warn,POSSIBLE_MISSING,img_0096,,Model thấy person (conf=0.86) nhưng nhãn không có box,"{""conf"": 0.8585, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0099,,Model thấy person (conf=0.88) nhưng nhãn không có box,"{""conf"": 0.8766, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0099,14,Nhãn tại dòng 14 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0100,4,Nhãn tại dòng 4 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0103,,Model thấy person (conf=0.92) nhưng nhãn không có box,"{""conf"": 0.9246, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0104,,Model thấy person (conf=0.93) nhưng nhãn không có box,"{""conf"": 0.9298, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0111,2,Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0124,,"Nghi nhầm lớp: model đoán car (conf=0.93), nhãn khác lớp (IoU=0.97)","{""conf"": 0.9281, ""iou"": 0.9669}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0125,,Box lỏng/lệch (IoU=0.42 < 0.5),"{""conf"": 0.8328, ""iou"": 0.421}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0127,,Box lỏng/lệch (IoU=0.44 < 0.5),"{""conf"": 0.8845, ""iou"": 0.4372}"
+second_opinion,warn,POSSIBLE_MISSING,img_0131,,Model thấy person (conf=0.89) nhưng nhãn không có box,"{""conf"": 0.8922, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0144,,Model thấy person (conf=0.96) nhưng nhãn không có box,"{""conf"": 0.9637, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0144,1,Nhãn tại dòng 1 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0145,,Model thấy person (conf=0.94) nhưng nhãn không có box,"{""conf"": 0.9382, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0149,3,Nhãn tại dòng 3 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0150,3,Nhãn tại dòng 3 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0155,2,Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0155,3,Nhãn tại dòng 3 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0157,,Model thấy person (conf=0.90) nhưng nhãn không có box,"{""conf"": 0.8965, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0159,,Model thấy person (conf=0.93) nhưng nhãn không có box,"{""conf"": 0.9289, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0165,,Model thấy person (conf=0.82) nhưng nhãn không có box,"{""conf"": 0.8218, ""class"": 1}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0175,,Box lỏng/lệch (IoU=0.42 < 0.5),"{""conf"": 0.8997, ""iou"": 0.4215}"
+second_opinion,warn,POSSIBLE_MISSING,img_0178,,Model thấy person (conf=0.93) nhưng nhãn không có box,"{""conf"": 0.9324, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0180,5,Nhãn tại dòng 5 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0183,,"Nghi nhầm lớp: model đoán person (conf=0.91), nhãn khác lớp (IoU=0.94)","{""conf"": 0.9078, ""iou"": 0.9352}"
+second_opinion,warn,POSSIBLE_MISSING,img_0187,,Model thấy person (conf=0.93) nhưng nhãn không có box,"{""conf"": 0.9328, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0189,4,Nhãn tại dòng 4 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0191,,"Nghi nhầm lớp: model đoán person (conf=0.91), nhãn khác lớp (IoU=0.95)","{""conf"": 0.908, ""iou"": 0.9476}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0193,6,Nhãn tại dòng 6 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_MISSING,img_0199,,Model thấy person (conf=0.83) nhưng nhãn không có box,"{""conf"": 0.8316, ""class"": 1}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0202,,"Nghi nhầm lớp: model đoán person (conf=0.94), nhãn khác lớp (IoU=0.99)","{""conf"": 0.944, ""iou"": 0.9894}"
+second_opinion,warn,POSSIBLE_MISSING,img_0204,,Model thấy person (conf=0.91) nhưng nhãn không có box,"{""conf"": 0.9149, ""class"": 1}"
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0204,1,Nhãn tại dòng 1 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_FALSE_POS,img_0206,1,Nhãn tại dòng 1 không khớp với bất kỳ dự đoán nào của model (nghi box thừa),
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0208,,"Nghi nhầm lớp: model đoán person (conf=0.92), nhãn khác lớp (IoU=0.94)","{""conf"": 0.9221, ""iou"": 0.9386}"
+second_opinion,warn,POSSIBLE_WRONG_CLASS,img_0212,,"Nghi nhầm lớp: model đoán person (conf=0.84), nhãn khác lớp (IoU=0.77)","{""conf"": 0.8384, ""iou"": 0.7676}"
+second_opinion,warn,POSSIBLE_MISSING,img_0215,,Model thấy person (conf=0.94) nhưng nhãn không có box,"{""conf"": 0.9357, ""class"": 1}"
+second_opinion,warn,POSSIBLE_LOOSE_BOX,img_0217,,Box lỏng/lệch (IoU=0.34 < 0.5),"{""conf"": 0.9453, ""iou"": 0.342}"
+second_opinion,warn,POSSIBLE_MISSING,img_0218,,Model thấy person (conf=0.84) nhưng nhãn không có box,"{""conf"": 0.8369, ""class"": 1}"
+second_opinion,warn,POSSIBLE_MISSING,img_0220,,Model thấy person (conf=0.82) nhưng nhãn không có box,"{""conf"": 0.8191, ""class"": 1}"

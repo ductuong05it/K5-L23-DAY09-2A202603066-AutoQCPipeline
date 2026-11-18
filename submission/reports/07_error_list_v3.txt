@@ -1,0 +1,44 @@
+# Danh sách lỗi — SAU người duyệt (v3)
+ảnh đã quét: 193
+
+label_format -> 9 dòng
+missing_labels -> 5 dòng
+second_opinion -> 13 dòng
+
+[WARN ] BOX_HUGE             img_0018.txt:1  Box quá lớn: diện tích chiếm 0.970 > 0.95
+[WARN ] BOX_HUGE             img_0128.txt:1  Box quá lớn: diện tích chiếm 0.988 > 0.95
+[WARN ] BOX_HUGE             img_0196.txt:1  Box quá lớn: diện tích chiếm 0.984 > 0.95
+[WARN ] BOX_TINY             img_0026.txt:6  Box quá nhỏ: cạnh ngắn 11.4px < 12px
+[WARN ] BOX_TINY             img_0051.txt:5  Box quá nhỏ: cạnh ngắn 8.9px < 12px
+[WARN ] BOX_TINY             img_0161.txt:2  Box quá nhỏ: cạnh ngắn 10.3px < 12px
+[WARN ] BOX_TINY             img_0161.txt:3  Box quá nhỏ: cạnh ngắn 11.4px < 12px
+[WARN ] BOX_TINY             img_0161.txt:4  Box quá nhỏ: cạnh ngắn 11.9px < 12px
+[WARN ] BOX_TINY             img_0183.txt:11  Box quá nhỏ: cạnh ngắn 11.8px < 12px
+[WARN ] EMPTY_LABEL          img_0097  file nhãn rỗng: ảnh nền hay thiếu nhãn?
+[WARN ] EMPTY_LABEL          img_0129  file nhãn rỗng: ảnh nền hay thiếu nhãn?
+[WARN ] EMPTY_LABEL          img_0147  file nhãn rỗng: ảnh nền hay thiếu nhãn?
+[WARN ] EMPTY_LABEL          img_0184  file nhãn rỗng: ảnh nền hay thiếu nhãn?
+[WARN ] EMPTY_LABEL          img_0192  file nhãn rỗng: ảnh nền hay thiếu nhãn?
+[WARN ] POSSIBLE_FALSE_POS   img_0014.txt:2  Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0022.txt:2  Nhãn tại dòng 2 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0068.txt:8  Nhãn tại dòng 8 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0075.txt:6  Nhãn tại dòng 6 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0091.txt:10  Nhãn tại dòng 10 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0124.txt:8  Nhãn tại dòng 8 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0131.txt:11  Nhãn tại dòng 11 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0189.txt:4  Nhãn tại dòng 4 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0191.txt:1  Nhãn tại dòng 1 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0206.txt:1  Nhãn tại dòng 1 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_FALSE_POS   img_0212.txt:4  Nhãn tại dòng 4 không khớp với bất kỳ dự đoán nào của model (nghi box thừa)
+[WARN ] POSSIBLE_MISSING     img_0183  Model thấy person (conf=0.81) nhưng nhãn không có box
+[WARN ] POSSIBLE_WRONG_CLASS img_0078  Nghi nhầm lớp: model đoán car (conf=0.83), nhãn khác lớp (IoU=0.92)
+
+## Tổng hợp theo mã
+warn  BOX_HUGE               3
+warn  BOX_TINY               6
+warn  EMPTY_LABEL            5
+warn  POSSIBLE_FALSE_POS     11
+warn  POSSIBLE_MISSING       1
+warn  POSSIBLE_WRONG_CLASS   1
+
+Kết luận: RELEASE — Đạt chuẩn xuất xưởng: không còn lỗi bắt buộc, tỉ lệ cảnh báo (6.7%) dưới ngưỡng (10.0%).
